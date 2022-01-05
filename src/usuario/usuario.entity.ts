@@ -6,6 +6,12 @@ export class Usuario {
   id: number;
 
   @Column({ length: 100 })
+  nome: string;
+
+  @Column({ length: 100 })
+  sobrenome: string;
+
+  @Column({ length: 100 })
   login: string;
 
   @Column({ length: 100 })

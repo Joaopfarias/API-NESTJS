@@ -3,7 +3,6 @@ import { ResultadoDto } from 'src/dto/resultado.dto';
 import { ObjectID, Repository } from 'typeorm';
 import { UsuarioCadastrarDto } from './dto/usuario.cadastrar.dto';
 import { UsuarioAtualizarDto } from './dto/usuario.atualizar.dto';
-import { UsuarioRemoverDto } from './dto/usuario.remover.dto';
 import { Usuario } from './usuario.entity';
 
 @Injectable()
@@ -22,6 +21,8 @@ export class UsuarioService {
   async cadastrar(data : UsuarioCadastrarDto): Promise<ResultadoDto>{
     let usuario = new Usuario()
     usuario.id = data.id
+    usuario.nome = data.nome
+    usuario.sobrenome = data.sobrenome
     usuario.login = data.login
     usuario.senha = data.senha
     return this.usuarioRepository.save(usuario)
@@ -39,11 +40,7 @@ export class UsuarioService {
     })
   }
   async atualizar(id:number, data : UsuarioAtualizarDto): Promise<ResultadoDto>{
-    let usuario = new Usuario()
-    usuario.id = data.id
-    usuario.login = data.login
-    usuario.senha = data.senha
-    return this.usuarioRepository.update(usuario.id, usuario)
+    return this.usuarioRepository.update(id, data)
     .then((result) =>{
         return <ResultadoDto>{
             status:true,

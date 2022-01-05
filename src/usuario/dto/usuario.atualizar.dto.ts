@@ -1,5 +1,6 @@
 export interface UsuarioAtualizarDto{
-	id: number;
-	login: string;
+	nome: string;
+	sobrenome:string;
+	login:string;
 	senha: string;
 }

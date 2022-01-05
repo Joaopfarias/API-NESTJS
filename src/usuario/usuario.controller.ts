@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Request,
 import { ResultadoDto } from 'src/dto/resultado.dto';
 import { UsuarioCadastrarDto } from './dto/usuario.cadastrar.dto';
 import { UsuarioAtualizarDto } from './dto/usuario.atualizar.dto';
-import { UsuarioRemoverDto } from './dto/usuario.remover.dto';
 import { Usuario } from './usuario.entity';
 import { UsuarioService } from './usuario.service';
 import { AuthGuard } from '@nestjs/passport';
